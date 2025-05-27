@@ -1,0 +1,1 @@
+edgeprotecttools>=1.6

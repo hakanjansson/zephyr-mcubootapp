@@ -1,0 +1,55 @@
+{
+    "external_flash": [
+        {
+            "model": "FM25W08",
+            "mode": "XIP"
+        }
+    ],
+    "boot_and_upgrade":
+    {
+        "bootloader": {
+            "address": {
+                "description": "Address of the bootloader",
+                "value": "$<TARGET_PROPERTY:memorymap,BOOTLOADER_ADDRESS>"
+            },
+            "size": {
+                "description": "Size of the bootloader",
+                "value": "$<TARGET_PROPERTY:memorymap,BOOTLOADER_SIZE>"
+            },
+            "scratch_address": {
+                "description": "Address of the scratch area",
+                "value": "$<TARGET_PROPERTY:memorymap,BOOTLOADER_SCRATCH_ADDRESS>"
+            },
+            "scratch_size": {
+                "description": "Size of the scratch area",
+                "value": "$<TARGET_PROPERTY:memorymap,BOOTLOADER_SCRATCH_SIZE>"
+            },
+            "status_address": {
+                "description": "Address of the swap status partition",
+                "value": "$<TARGET_PROPERTY:memorymap,BOOTLOADER_STATUS_ADDRESS>"
+            },
+            "status_size": {
+                "description": "Size of the swap status partition",
+                "value": "$<TARGET_PROPERTY:memorymap,BOOTLOADER_STATUS_SIZE>"
+            }
+        },
+        "application_1": {
+            "address": {
+                "description": "Address of the application primary slot",
+                "value": "$<TARGET_PROPERTY:memorymap,APPLICATION_1_ADDRESS>"
+            },
+            "size": {
+                "description": "Size of the application primary slot",
+                "value": "$<TARGET_PROPERTY:memorymap,APPLICATION_1_SIZE>"
+            },
+            "upgrade_address": {
+                "description": "Address of the application secondary slot",
+                "value": "$<TARGET_PROPERTY:memorymap,APPLICATION_1_UPGRADE_ADDRESS>"
+            },
+            "upgrade_size": {
+                "description": "Size of the application secondary slot",
+                "value": "$<TARGET_PROPERTY:memorymap,APPLICATION_1_UPGRADE_SIZE>"
+            }
+        }
+    }
+}

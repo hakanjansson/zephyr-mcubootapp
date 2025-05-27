@@ -1,0 +1,12 @@
+name: mcubootapp
+
+build:
+  cmake: .
+  kconfig: Kconfig
+  settings:
+    snippet_root: .
+
+package-managers:
+  pip:
+    requirement-files:
+      - scripts/requirements.txt

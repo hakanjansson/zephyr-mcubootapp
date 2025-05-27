@@ -1,0 +1,8 @@
+name: mcubootapp
+append:
+  EXTRA_CONF_FILE: mcubootapp.conf
+
+boards:
+  /cyw920829m2evk_02/.*/:
+    append:
+      EXTRA_DTC_OVERLAY_FILE: cyw920829m2evk_02.overlay

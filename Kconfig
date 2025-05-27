@@ -1,0 +1,42 @@
+# Copyright (C) 2025 Infineon Technologies
+# SPDX-License-Identifier: Apache-2.0
+
+config MCUBOOTAPP
+	bool "MCUBootApp build helpers"
+	default n
+	imply BOOTLOADER_MCUBOOT
+	depends on MCUBOOTAPP_SUPPORTED_TOOLCHAIN && MCUBOOTAPP_SUPPORTED_PLATFORM
+	help
+	  Build helpers for Infineon custom MCUboot based bootloader application
+	  MCUBootApp
+
+config MCUBOOTAPP_SUPPORTED_TOOLCHAIN
+	bool
+	default y if "$(ZEPHYR_TOOLCHAIN_VARIANT)" = "zephyr" || "$(ZEPHYR_TOOLCHAIN_VARIANT)" = "gnuarmemb"
+	help
+	  Hidden helper option
+
+config MCUBOOTAPP_SUPPORTED_PLATFORM
+	bool
+	default y if SOC_SERIES = "cyw20829"
+	help
+	  Hidden helper option
+
+config MCUBOOTAPP_BOOTROM_SIGNATURE_KEY_FILE
+	string "Path to the BootROM signature key file"
+	depends on SOC_SERIES = "cyw20829"
+	help
+	  The file contains a key that is used to sign the application image
+	  launched by CYW20829 BootROM. The CYW20829 must have been provisioned
+	  into SECURE lifecycle stage with a matching key.
+
+config MCUBOOTAPP_BOOTROM_ENCRYPTION_KEY_FILE
+	string "Path to the BootROM encryption key file"
+	depends on MCUBOOTAPP_BOOTROM_SIGNATURE_KEY_FILE != ""
+	help
+	  The file contains a raw binary AES-128 key that is used to encrypt the
+	  application image launched by CYW20829 BootROM. The CYW20829 must have
+	  been provisioned into SECURE lifecycle stage with enabled encryption and
+	  the same AES-128 key.
+
+rsource "Kconfig.defconfig"

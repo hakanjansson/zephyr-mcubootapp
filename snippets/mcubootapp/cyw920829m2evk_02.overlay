@@ -1,0 +1,13 @@
+&flash0 {
+	partitions {
+		swap_status_partition: partition@F0000 {
+			label = "swap-status";
+			reg = <0xF0000 0xC000>;
+		};
+
+		scratch_partition: partition@FC000 {
+			label = "scratch";
+			reg = <0xFC000 0x2000>;
+		};
+	};
+};
