@@ -1,5 +1,5 @@
 config MCUBOOT_SIGNATURE_KEY_FILE
-	default "$(ZEPHYR_INFINEON_MCUBOOT_MODULE_DIR)/boot/cypress/keys/cypress-test-ec-p256.pem" if MCUBOOTAPP=y
+	default "$(ZEPHYR_MCUBOOTAPP_MODULE_DIR)/mcuboot/boot/cypress/keys/cypress-test-ec-p256.pem" if MCUBOOTAPP=y
 
 config INFINEON_SECURE_POLICY
 	default "$(ZEPHYR_BASE)/soc/infineon/cat1b/cyw20829/default_policy.json" if MCUBOOTAPP=y

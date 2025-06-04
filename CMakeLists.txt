@@ -54,7 +54,7 @@ if(CONFIG_MCUBOOTAPP)
   set(PLATFORM_SUFFIX "cyw20829")
   set(PDL_CAT_SUFFIX "1B")
 
-  set(MCUBOOT_PATH "${ZEPHYR_INFINEON_MCUBOOT_MODULE_DIR}")
+  set(MCUBOOT_PATH "${ZEPHYR_MCUBOOTAPP_MODULE_DIR}/mcuboot")
   set(PRJ_DIR "${MCUBOOT_PATH}/boot/cypress")
   set(CUR_APP_PATH "${PRJ_DIR}/MCUBootApp")
   set(CY_LIBS_PATH ${PRJ_DIR}/libs)
@@ -86,7 +86,7 @@ if(CONFIG_MCUBOOTAPP)
   _mcubootapp_locate_file(signature_key_file "${CONFIG_MCUBOOT_SIGNATURE_KEY_FILE}"
                           "MCUboot signature key")
   if("${signature_key_file}" STREQUAL
-     "${ZEPHYR_INFINEON_MCUBOOT_MODULE_DIR}/boot/cypress/keys/cypress-test-ec-p256.pem")
+     "${ZEPHYR_MCUBOOTAPP_MODULE_DIR}/mcuboot/boot/cypress/keys/cypress-test-ec-p256.pem")
     message(WARNING "WARNING: Using default MCUboot signature key file, "
                     "this file is for debug use only and is not secure!")
   endif()
